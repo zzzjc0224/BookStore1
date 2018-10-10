@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>usClassName</param-name>
+    <param-value>org.lq.service.impl.UserServiceImpl</param-value>
+  </context-param>
+  <context-param>
+    <param-name>bookClassName</param-name>
+    <param-value>org.lq.service.impl.BookServiceImpl</param-value>
+  </context-param>
+  <context-param>
+    <param-name>orderClassName</param-name>
+    <param-value>org.lq.service.impl.OrderServiceImpl</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>imageServlet</servlet-name>
+    <servlet-class>org.lq.servlet.ImageServlet</servlet-class>
+    <init-param>
+      <param-name>wordPath</param-name>
+      <param-value>new_words.txt</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>imageServlet</servlet-name>
+    <url-pattern>/imageCode</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>registerServlet</servlet-name>
+    <servlet-class>org.lq.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>registerServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <listener-class>org.lq.servlet.MyServletContextListener</listener-class>
+  </listener>
+</web-app>
